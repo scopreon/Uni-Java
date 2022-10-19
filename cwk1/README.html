@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="comp1721-coursework-1">COMP1721 Coursework 1</h1>
+<ul>
+<li><a href="#using-gradle">Using Gradle</a></li>
+<li><a href="#tests-and-style-checking">Tests &amp; Style Checking</a></li>
+<li><a href="#running-the-application">Running The Application</a></li>
+<li><a href="#cleaning-up">Cleaning Up</a></li>
+<li><a href="#submitting">Submitting</a></li>
+</ul>
+<h2 id="using-gradle">Using Gradle</h2>
+<p>Everything you need to do in this assignment, aside from editing code, is handled by the Gradle build system. You can run Gradle from the command line, or use it from within VS Code or IntelliJ IDE if you prefer (see below).</p>
+<p><strong>You do not need to install Gradle yourself</strong>, as we’ve included a ‘Gradle wrapper’ that will download a compatible version of the tool, along with various library dependencies, if required. <strong>This will be very slow the first time that it runs!</strong></p>
+<p>You should run Gradle commands in the <code>cwk1</code> directory. On Linux, macOS or Windows Subsystem for Linux (WSL2), use <code>./gradlew</code>. On Windows, use <code>gradlew</code>. (The commands below assume the use of Linux, macOS or WSL2.)</p>
+<p><strong>NOTE: if your PC is running anti-virus software, you should add an exclusion for the <code>cwk1</code> directory to avoid potential problems with Gradle.</strong></p>
+<h3 id="if-using-visual-studio-code">If Using Visual Studio Code</h3>
+<p>You can simplify the use of Gradle by installing the Gradle Tasks extension. This will add a Gradle button to the side bar. Clicking on this will active a panel in which you can see and run the Gradle tasks for the various projects.</p>
+<h3 id="if-using-intellij-idea">If Using IntelliJ IDEA</h3>
+<p><strong>Please use the most recent version of the IntelliJ, on your own PC. We do not support the use of older versions for the coursework, and may not be able to help you if you encounter problems.</strong></p>
+<p>Use the <em>New Project</em> button to import <code>cwk1</code> as the project directory. After the project has been imported, you should be able to use the Gradle button on the right-hand edge of the IntelliJ window to active the Gradle tool window. From here you can access a hierarchical list of all the supported Gradle tasks. The list entries you will need to use for the coursework are</p>
+<pre><code>Tasks/verification/test
+Tasks/verification/style
+Tasks/application/run
+Tasks/application/runFixed</code></pre>
+<p>Note: once you’ve used one of these entries, IntelliJ will create a run configuration for it, allowing you to rerun it in future in a more convenient way.</p>
+<h2 id="tests-and-style-checking">Tests and Style Checking</h2>
+<p>To run all the unit tests, recompiling code where necessary, do</p>
+<pre><code>./gradlew test</code></pre>
+<p>Test names and status (PASSED or FAILED) are listed in the terminal. A <strong>test report</strong> is also generated in HTML, containing detailed information about the tests and any failures that have occurred. You can access this by pointing your browser at <code>build/reports/tests/test/index.html</code>. We suggest you keep this page open in a browser tab, refreshing it after each test run, so that you always have full information available on test results.</p>
+<p>Note that Gradle won’t normally rerun tests if they have all passed, unless you’ve changed something in your code. You can force it to recompile everything and rerun the tests using</p>
+<pre><code>./gradlew test --rerun-tasks</code></pre>
+<p>To check coding style for all classes (apart from the tests), do</p>
+<pre><code>./gradlew style</code></pre>
+<p>If there are any style violations, you’ll see a count reported in the terminal window. A full report on the violations can be viewed by pointing your browser at <code>build/reports/checkstyle/main.html</code>.</p>
+<p><strong>Treat this as a rough guide.</strong> Note that style checking is not exhaustive, and we may still penalise you on style grounds even if no violations are reported here. As with unit tests, Gradle normally won’t rerun the style check unless you change something in your code.</p>
+<h2 id="running-the-application">Running The Application</h2>
+<p>The application should be run in a terminal window, configured with a dark background. If you are doing the coursework on Windows, note that the default command window provided by <code>cmd.exe</code> is NOT suitable. You should install the Windows Terminal app from the Microsoft Store and use that instead.</p>
+<p>You can run the application like this:</p>
+<pre><code>./gradlew run</code></pre>
+<p>This will run the program in the <code>Wordle</code> class that we have provided for you. Note that this won’t work properly until you’ve implemented the <code>Game</code> class fully, with both constructors and the <code>play()</code> and <code>save()</code> methods defined.</p>
+<p>This command runs the application without any command line arguments, and the expected behaviour in this case is that today’s Wordle puzzle will be played. If you’ve implemented the <code>save()</code> method properly then a summary of the game will be written to <code>build/lastgame.txt</code>. You can view this in the terminal with</p>
+<pre><code>cat build/lastgame.txt</code></pre>
+<p>(At the Windows command prompt, use <code>type build\lastgame.txt</code> instead.)</p>
+<p>For more convenient testing, you can do this:</p>
+<pre><code>./gradlew runFixed</code></pre>
+<p>This runs the application under fixed conditions, providing a specific game number as a command line argument. You will see the game number and the corresponding target word displayed in the terminal before the application itself executes.</p>
+<h2 id="cleaning-up">Cleaning Up</h2>
+<p>To remove all files generated by the build process, use</p>
+<pre><code>./gradlew clean</code></pre>
+<h2 id="submitting">Submitting</h2>
+<p>Your coursework solution must be submitted to Minerva <strong>and</strong> must also be visible as a series of commits in your GitLab repository.</p>
+<p>To generate your Minerva submission, do this:</p>
+<pre><code>./gradlew submission</code></pre>
+<p>This will produce a Zip archive named <code>cwk1.zip</code>, containing everything that you need to submit. <strong>You must then submit this manually to Minerva</strong>, using the link provided in the <em>Submit My Work</em> area.</p>
+</body>
+</html>

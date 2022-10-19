@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="comp1721.cwk1.WordListTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-03-03T23:30:30" hostname="Sauls-MacBook-Air.local" time="0.005">
+  <properties/>
+  <testcase name="GameException if game number is out of range" classname="comp1721.cwk1.WordListTests" time="0.002"/>
+  <testcase name="Suitable exception if file of words cannot be found" classname="comp1721.cwk1.WordListTests" time="0.0"/>
+  <testcase name="size() returns correct value for a WordList" classname="comp1721.cwk1.WordListTests" time="0.0"/>
+  <testcase name="Words can be retrieved from a WordList" classname="comp1721.cwk1.WordListTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

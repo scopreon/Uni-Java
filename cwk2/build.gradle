@@ -1,0 +1,86 @@
+// Build script for COMP1721 Coursework 2
+
+plugins {
+  id 'java'
+  id 'checkstyle'
+  id 'application'
+  id 'idea'
+}
+
+// Library dependencies
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testImplementation (
+    'org.junit.jupiter:junit-jupiter-api:5.8.2',
+    'org.hamcrest:hamcrest:2.2'
+  )
+  testRuntimeOnly (
+    'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+  )
+}
+
+// Unit testing
+
+test {
+  useJUnitPlatform()
+
+  testLogging {
+    events 'PASSED', 'FAILED', 'SKIPPED'
+  }
+}
+
+// Style checking
+
+checkstyle {
+  showViolations false
+}
+
+task style {
+  group 'verification'
+  description 'Runs checkstyle on code of this project.'
+  dependsOn checkstyleMain
+}
+
+// Support for IntelliJ
+
+idea {
+  module {
+    sourceDirs += file('src/main/java')
+    testSourceDirs += file('src/test/java')
+    inheritOutputDirs = false
+    outputDir = file('build/classes/java/main')
+    testOutputDir file('build/classes/java/test')
+  }
+}
+
+// Running the application
+
+application {
+  mainClass = 'comp1721.cwk2.PokerStats'
+  run {
+    description 'Runs PokerStats program.'
+    args ('build/log.txt', '5000')
+  }
+}
+
+// Generation of Zip file for submission
+
+task submission(type: Zip) {
+  group 'Submission'
+  description 'Generates Zip archive suitable for submission to Minerva.'
+
+  archiveFileName = 'cwk2.zip'
+  destinationDirectory = project.rootDir
+
+  from("$project.rootDir") {
+    exclude 'cwk2.zip', 'cwk2-files.zip', '.idea', '.gradle', 'build'
+  }
+
+  doLast {
+    logger.warn("cwk2.zip generated.")
+  }
+}

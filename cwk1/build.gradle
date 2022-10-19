@@ -1,0 +1,132 @@
+// Build script for COMP1721 Coursework 1
+
+plugins {
+  id 'java'
+  id 'checkstyle'
+  id 'application'
+  id 'idea'
+}
+
+// Library dependencies
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testImplementation (
+    'org.junit.jupiter:junit-jupiter-api:5.8.2',
+    'org.hamcrest:hamcrest:2.2'
+  )
+  testRuntimeOnly (
+    'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+  )
+}
+
+// Unit testing
+
+test {
+  useJUnitPlatform()
+
+  testLogging {
+    events 'PASSED', 'FAILED', 'SKIPPED'
+  }
+}
+
+// Style checking
+
+checkstyle {
+  showViolations false
+}
+
+task style {
+  group 'verification'
+  description 'Runs checkstyle on code of this project.'
+  dependsOn checkstyleMain
+}
+
+// Support for IntelliJ
+
+idea {
+  module {
+    sourceDirs += file('src/main/java')
+    testSourceDirs += file('src/test/java')
+    inheritOutputDirs = false
+    outputDir = file('build/classes/java/main')
+    testOutputDir file('build/classes/java/test')
+  }
+}
+
+// Running the application
+
+application {
+  mainClass = 'comp1721.cwk1.Wordle'
+  run {
+    description 'Runs a game of Wordle using today\'s word.'
+    standardInput = System.in
+    doFirst {
+      print "\n"
+      println "----------------------------------------------------------------"
+    }
+  }
+}
+
+task runFixedAccessible(type: JavaExec) {
+  group 'application'
+  description 'Runs the game specified as a command line argument.'
+  standardInput = System.in
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = 'comp1721.cwk1.Wordle'
+  args ('-a','100')
+  doFirst {
+    println "\nRunning with accessible mode chosen"
+    println "(Colours will not be displayed)\n"
+    println "----------------------------------------------------------------"
+  }
+}
+
+task runAccessible(type: JavaExec) {
+  group 'application'
+  description 'Runs the game specified as a command line argument.'
+  standardInput = System.in
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = 'comp1721.cwk1.Wordle'
+  args '-a'
+  doFirst {
+    println "\nRunning with accessible mode chosen"
+    println "(Colours will not be displayed)\n"
+    println "----------------------------------------------------------------"
+  }
+}
+
+task runFixed(type: JavaExec) {
+  group 'application'
+  description 'Runs the game specified as a command line argument.'
+  standardInput = System.in
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = 'comp1721.cwk1.Wordle'
+  args '100'
+  doFirst {
+    println "\nRunning with 100 as a command line argument"
+    println "(Target word for Game 100 is BASIC)\n"
+    println "----------------------------------------------------------------"
+  }
+}
+
+// Generation of Zip file for submission
+
+task submission(type: Zip) {
+  group 'Submission'
+  description 'Generates Zip archive suitable for submission to Minerva.'
+
+  archiveFileName = 'cwk1.zip'
+  destinationDirectory = project.rootDir
+
+  from("$project.rootDir") {
+    exclude 'cwk1.zip', '.idea', '**/.gradle', '**/build'
+  }
+
+  doLast {
+    logger.warn("cwk1.zip generated.")
+  }
+}

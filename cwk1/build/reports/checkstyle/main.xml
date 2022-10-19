@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/Users/saulcoops/Documents/COMP1721 Object Oriented Programming/comp1721/coursework/cwk1/src/main/java/comp1721/cwk1/Game.java">
+</file>
+<file name="/Users/saulcoops/Documents/COMP1721 Object Oriented Programming/comp1721/coursework/cwk1/src/main/java/comp1721/cwk1/GameException.java">
+</file>
+<file name="/Users/saulcoops/Documents/COMP1721 Object Oriented Programming/comp1721/coursework/cwk1/src/main/java/comp1721/cwk1/Guess.java">
+</file>
+<file name="/Users/saulcoops/Documents/COMP1721 Object Oriented Programming/comp1721/coursework/cwk1/src/main/java/comp1721/cwk1/WordList.java">
+</file>
+<file name="/Users/saulcoops/Documents/COMP1721 Object Oriented Programming/comp1721/coursework/cwk1/src/main/java/comp1721/cwk1/Wordle.java">
+</file>
+</checkstyle>
